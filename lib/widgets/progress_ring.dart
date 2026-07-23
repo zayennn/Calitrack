@@ -32,7 +32,13 @@ class ProgressRing extends StatelessWidget {
           progressColor: progressColor,
           strokeWidth: strokeWidth,
         ),
-        child: centerWidget ?? Center(child: Text('${(progress * 100).toInt()}%', style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white))),
+        child: centerWidget ??
+            Center(
+                child: Text('${(progress * 100).toInt()}%',
+                    style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white))),
       ),
     );
   }
