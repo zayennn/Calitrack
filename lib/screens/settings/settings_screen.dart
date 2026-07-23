@@ -1,4 +1,3 @@
-// File: lib/screens/settings/settings_screen.dart
 import 'package:flutter/material.dart';
 import '../../core/constants/colors.dart';
 import '../../core/constants/sizes.dart';
