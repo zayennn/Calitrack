@@ -1,3 +1,4 @@
+// File: lib/widgets/stat_card.dart
 import 'package:flutter/material.dart';
 import '../core/constants/colors.dart';
 import '../core/constants/sizes.dart';
