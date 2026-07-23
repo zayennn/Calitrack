@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class ProgressRing extends StatelessWidget {
-  final double progress; // 0.0 to 1.0
+  final double progress;
   final double size;
   final double strokeWidth;
   final Color backgroundColor;
@@ -56,7 +56,6 @@ class _ProgressRingPainter extends CustomPainter {
     final center = Offset(size.width / 2, size.height / 2);
     final radius = (size.width - strokeWidth) / 2;
 
-    // Background circle
     final bgPaint = Paint()
       ..color = backgroundColor
       ..style = PaintingStyle.stroke
@@ -64,7 +63,6 @@ class _ProgressRingPainter extends CustomPainter {
       ..strokeCap = StrokeCap.round;
     canvas.drawCircle(center, radius, bgPaint);
 
-    // Progress arc
     final progressPaint = Paint()
       ..color = progressColor
       ..style = PaintingStyle.stroke
@@ -73,7 +71,7 @@ class _ProgressRingPainter extends CustomPainter {
     final sweepAngle = 2 * math.pi * progress;
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),
-      -math.pi / 2, // start from top
+      -math.pi / 2,
       sweepAngle,
       false,
       progressPaint,
