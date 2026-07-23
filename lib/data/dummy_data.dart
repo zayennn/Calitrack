@@ -1,7 +1,6 @@
 import '../models/workout.dart';
 import '../models/exercise.dart';
 import '../models/weight.dart';
-import 'package:intl/intl.dart';
 
 class DummyData {
   static final List<Exercise> pushExercises = [
@@ -252,7 +251,8 @@ class DummyData {
       final date = now.subtract(Duration(days: i));
       weight += ((i % 5 == 0) ? -0.5 : (i % 7 == 0 ? 0.3 : 0.1));
       weight = weight.clamp(47.0, 52.0);
-      entries.add(WeightEntry(date: date, weight: double.parse(weight.toStringAsFixed(1))));
+      entries.add(WeightEntry(
+          date: date, weight: double.parse(weight.toStringAsFixed(1))));
     }
     return entries;
   }
