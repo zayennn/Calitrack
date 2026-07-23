@@ -1,3 +1,4 @@
+// File: lib/screens/progress/progress_screen.dart
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import '../../core/constants/colors.dart';
@@ -19,9 +20,8 @@ class ProgressScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Weekly workout chart (dummy bar chart)
-            Text('Workout Mingguan',
-                style: const TextStyle(
+            const Text('Workout Mingguan',
+                style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.white)),
@@ -43,23 +43,18 @@ class ProgressScreen extends StatelessWidget {
                             showTitles: true,
                             getTitlesWidget: (value, meta) {
                               const days = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-                              return Text(
-                                days[value.toInt() % 7],
-                                style: const TextStyle(
-                                    color: Colors.grey, fontSize: 12),
-                              );
+                              return Text(days[value.toInt() % 7],
+                                  style: const TextStyle(
+                                      color: Colors.grey, fontSize: 12));
                             },
                           ),
                         ),
                         leftTitles: AxisTitles(
-                          sideTitles: SideTitles(showTitles: false),
-                        ),
+                            sideTitles: SideTitles(showTitles: false)),
                         topTitles: AxisTitles(
-                          sideTitles: SideTitles(showTitles: false),
-                        ),
+                            sideTitles: SideTitles(showTitles: false)),
                         rightTitles: AxisTitles(
-                          sideTitles: SideTitles(showTitles: false),
-                        ),
+                            sideTitles: SideTitles(showTitles: false)),
                       ),
                       gridData: FlGridData(show: false),
                       borderData: FlBorderData(show: false),
@@ -78,21 +73,22 @@ class ProgressScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            // Weight chart (line) - tap to go to weight tracker
             GestureDetector(
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (_) => const WeightTrackerScreen()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => const WeightTrackerScreen()));
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Berat Badan',
-                      style: const TextStyle(
+                  const Text('Berat Badan',
+                      style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                           color: Colors.white)),
-                  Icon(Icons.chevron_right, color: Colors.grey),
+                  Icon(Icons.chevron_right_rounded, color: Colors.grey),
                 ],
               ),
             ),
@@ -128,9 +124,8 @@ class ProgressScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            // Stats
-            Text('Statistik',
-                style: const TextStyle(
+            const Text('Statistik',
+                style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.white)),
@@ -143,45 +138,47 @@ class ProgressScreen extends StatelessWidget {
               mainAxisSpacing: 10,
               children: [
                 StatCard(
-                    icon: Icons.fitness_center,
+                    icon: Icons.fitness_center_rounded,
                     label: 'Total Workout',
                     value: '${DummyData.totalWorkoutsCompleted}'),
                 StatCard(
-                    icon: Icons.star,
+                    icon: Icons.star_rounded,
                     label: 'Streak',
                     value: '${DummyData.workoutStreak}',
                     iconColor: Colors.orange),
                 StatCard(
-                    icon: Icons.calendar_today,
+                    icon: Icons.calendar_today_rounded,
                     label: 'Hari Aktif',
                     value: '${DummyData.activeDays}',
                     iconColor: AppColors.secondary),
                 StatCard(
-                    icon: Icons.pie_chart,
+                    icon: Icons.pie_chart_rounded,
                     label: 'Konsistensi',
                     value: '${DummyData.consistencyPercent}%',
                     iconColor: Colors.purpleAccent),
                 StatCard(
-                    icon: Icons.timer,
+                    icon: Icons.timer_rounded,
                     label: 'Rata-rata',
                     value: '${DummyData.avgWorkoutDuration}m',
                     iconColor: Colors.teal),
                 StatCard(
-                    icon: Icons.hourglass_bottom,
+                    icon: Icons.hourglass_bottom_rounded,
                     label: 'Total Waktu',
-                    value: '${(DummyData.totalWorkoutTime / 60).toStringAsFixed(1)}j',
+                    value:
+                        '${(DummyData.totalWorkoutTime / 60).toStringAsFixed(1)}j',
                     iconColor: Colors.deepOrange),
               ],
             ),
             const SizedBox(height: 16),
-            // Link to full statistics
             Center(
               child: TextButton.icon(
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => const StatisticsScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (_) => const StatisticsScreen()));
                 },
-                icon: Icon(Icons.analytics, color: AppColors.primary),
+                icon: Icon(Icons.analytics_rounded, color: AppColors.primary),
                 label: Text('Lihat Statistik Lengkap',
                     style: TextStyle(color: AppColors.primary)),
               ),
@@ -208,8 +205,10 @@ class ProgressScreen extends StatelessWidget {
 
   List<FlSpot> _getWeightSpots() {
     final history = DummyData.getWeightHistory();
-    return history.asMap().entries.map((e) {
-      return FlSpot(e.key.toDouble(), e.value.weight);
-    }).toList();
+    return history
+        .asMap()
+        .entries
+        .map((e) => FlSpot(e.key.toDouble(), e.value.weight))
+        .toList();
   }
 }
