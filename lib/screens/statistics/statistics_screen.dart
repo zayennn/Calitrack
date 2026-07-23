@@ -1,8 +1,10 @@
+// File: lib/screens/statistics/statistics_screen.dart
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import '../../core/constants/colors.dart';
 import '../../core/constants/sizes.dart';
 import '../../data/dummy_data.dart';
+import '../../widgets/stat_card.dart';
 
 class StatisticsScreen extends StatelessWidget {
   const StatisticsScreen({super.key});
@@ -16,9 +18,11 @@ class StatisticsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Total Workout',
-                style: const TextStyle(
-                    fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
+            const Text('Total Workout',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white)),
             const SizedBox(height: 8),
             Card(
               child: Padding(
@@ -26,18 +30,21 @@ class StatisticsScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _buildStatItem('Total', DummyData.totalWorkoutsCompleted.toString(), Icons.done_all),
-                    _buildStatItem('Bulan Ini', '12', Icons.calendar_view_month),
-                    _buildStatItem('Minggu Ini', '5', Icons.date_range),
-                    _buildStatItem('Hari Ini', '1', Icons.today),
+                    _buildStatItem('Total',
+                        DummyData.totalWorkoutsCompleted.toString(), Icons.done_all_rounded),
+                    _buildStatItem('Bulan Ini', '12', Icons.calendar_view_month_rounded),
+                    _buildStatItem('Minggu Ini', '5', Icons.date_range_rounded),
+                    _buildStatItem('Hari Ini', '1', Icons.today_rounded),
                   ],
                 ),
               ),
             ),
             const SizedBox(height: 24),
-            Text('Distribusi Latihan',
-                style: const TextStyle(
-                    fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
+            const Text('Distribusi Latihan',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white)),
             const SizedBox(height: 8),
             Row(
               children: [
@@ -56,28 +63,32 @@ class StatisticsScreen extends StatelessWidget {
                                 color: AppColors.primary,
                                 value: 40,
                                 title: 'Push',
-                                titleStyle: const TextStyle(fontSize: 10, color: Colors.black),
+                                titleStyle: const TextStyle(
+                                    fontSize: 10, color: Colors.black),
                                 radius: 50,
                               ),
                               PieChartSectionData(
                                 color: AppColors.secondary,
                                 value: 30,
                                 title: 'Pull',
-                                titleStyle: const TextStyle(fontSize: 10, color: Colors.black),
+                                titleStyle: const TextStyle(
+                                    fontSize: 10, color: Colors.black),
                                 radius: 50,
                               ),
                               PieChartSectionData(
                                 color: Colors.orange,
                                 value: 20,
                                 title: 'Leg',
-                                titleStyle: const TextStyle(fontSize: 10, color: Colors.black),
+                                titleStyle: const TextStyle(
+                                    fontSize: 10, color: Colors.black),
                                 radius: 50,
                               ),
                               PieChartSectionData(
                                 color: Colors.purple,
                                 value: 10,
                                 title: 'Other',
-                                titleStyle: const TextStyle(fontSize: 10, color: Colors.black),
+                                titleStyle: const TextStyle(
+                                    fontSize: 10, color: Colors.black),
                                 radius: 50,
                               ),
                             ],
@@ -116,15 +127,21 @@ class StatisticsScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 24),
-            // Additional stats
             Row(
               children: [
                 Expanded(
-                  child: StatCard(icon: Icons.timer, label: 'Rata-rata/hari', value: '${DummyData.avgWorkoutDuration}m'),
+                  child: StatCard(
+                      icon: Icons.timer_rounded,
+                      label: 'Rata-rata/hari',
+                      value: '${DummyData.avgWorkoutDuration}m'),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
-                  child: StatCard(icon: Icons.hourglass_full, label: 'Total Waktu', value: '${(DummyData.totalWorkoutTime/60).toStringAsFixed(1)}j'),
+                  child: StatCard(
+                      icon: Icons.hourglass_full_rounded,
+                      label: 'Total Waktu',
+                      value:
+                          '${(DummyData.totalWorkoutTime / 60).toStringAsFixed(1)}j'),
                 ),
               ],
             ),
@@ -150,10 +167,15 @@ class StatisticsScreen extends StatelessWidget {
   BarChartGroupData _makeGroup(int x, double y, String label, Color color) {
     return BarChartGroupData(
       x: x,
-      barRods: [BarChartRodData(toY: y, color: color, width: 12, borderRadius: BorderRadius.circular(4))],
+      barRods: [
+        BarChartRodData(
+          toY: y,
+          color: color,
+          width: 12,
+          borderRadius: BorderRadius.circular(4),
+        ),
+      ],
       showingTooltipIndicators: [],
     );
   }
 }
-
-// need StatCard import, I'll add.
