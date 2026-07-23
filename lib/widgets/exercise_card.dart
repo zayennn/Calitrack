@@ -29,7 +29,7 @@ class ExerciseCard extends StatelessWidget {
                 width: 50,
                 height: 50,
                 decoration: BoxDecoration(
-                  color: AppColors.primary.withOpacity(0.2),
+                  color: AppColors.primary.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Icon(Icons.fitness_center_rounded,
@@ -48,15 +48,13 @@ class ExerciseCard extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(
                       '${exercise.targetSets} Set × ${exercise.targetReps} Reps',
-                      style:
-                          const TextStyle(fontSize: 13, color: Colors.grey),
+                      style: const TextStyle(fontSize: 13, color: Colors.grey),
                     ),
                   ],
                 ),
               ),
               if (isCompleted)
-                const Icon(Icons.check_circle_rounded,
-                    color: AppColors.primary)
+                const Icon(Icons.check_circle_rounded, color: AppColors.primary)
               else
                 const Icon(Icons.chevron_right_rounded, color: Colors.grey),
             ],

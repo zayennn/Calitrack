@@ -11,21 +11,19 @@ class AppTheme {
         primary: AppColors.primary,
         secondary: AppColors.secondary,
         surface: AppColors.card,
-        background: AppColors.background,
         onPrimary: Colors.black,
         onSecondary: Colors.black,
         onSurface: Colors.white,
-        onBackground: Colors.white,
       ),
       scaffoldBackgroundColor: AppColors.background,
       textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme).apply(
         bodyColor: Colors.white,
         displayColor: Colors.white,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: AppColors.card,
         elevation: 4,
-        shadowColor: Colors.black.withOpacity(0.3),
+        shadowColor: Colors.black.withValues(alpha: 0.3),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),

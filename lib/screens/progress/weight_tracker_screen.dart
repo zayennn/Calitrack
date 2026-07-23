@@ -35,8 +35,7 @@ class WeightTrackerScreen extends StatelessWidget {
                   child: Column(
                     children: [
                       const Text('Berat Badan Saat Ini',
-                          style:
-                              TextStyle(fontSize: 16, color: Colors.grey)),
+                          style: TextStyle(fontSize: 16, color: Colors.grey)),
                       const SizedBox(height: 8),
                       Text('$currentWeight kg',
                           style: const TextStyle(
@@ -75,7 +74,7 @@ class WeightTrackerScreen extends StatelessWidget {
                           dotData: FlDotData(show: false),
                           belowBarData: BarAreaData(
                             show: true,
-                            color: AppColors.primary.withOpacity(0.1),
+                            color: AppColors.primary.withValues(alpha: 0.1),
                           ),
                         ),
                       ],
@@ -116,7 +115,7 @@ class WeightTrackerScreen extends StatelessWidget {
                         drawVerticalLine: false,
                         horizontalInterval: 1,
                         getDrawingHorizontalLine: (value) => FlLine(
-                          color: Colors.grey.withOpacity(0.2),
+                          color: Colors.grey.withValues(alpha: 0.2),
                           strokeWidth: 1,
                         ),
                       ),

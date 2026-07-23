@@ -56,12 +56,13 @@ class SettingsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   SwitchListTile(
-                    title:
-                        const Text('Dark Mode', style: TextStyle(color: Colors.white)),
+                    title: const Text('Dark Mode',
+                        style: TextStyle(color: Colors.white)),
                     value: true,
                     onChanged: (val) {},
-                    activeColor: AppColors.primary,
-                    secondary: const Icon(Icons.dark_mode_rounded, color: Colors.white),
+                    activeTrackColor: AppColors.primary,
+                    secondary: const Icon(Icons.dark_mode_rounded,
+                        color: Colors.white),
                   ),
                   Divider(color: Colors.grey.shade700, height: 1),
                   SwitchListTile(
@@ -69,21 +70,28 @@ class SettingsScreen extends StatelessWidget {
                         style: TextStyle(color: Colors.white)),
                     value: true,
                     onChanged: (val) {},
-                    activeColor: AppColors.primary,
-                    secondary: const Icon(Icons.notifications_rounded, color: Colors.white),
+                    activeTrackColor: AppColors.primary,
+                    secondary: const Icon(Icons.notifications_rounded,
+                        color: Colors.white),
                   ),
                   Divider(color: Colors.grey.shade700, height: 1),
                   ListTile(
-                    leading: const Icon(Icons.language_rounded, color: Colors.white),
-                    title: const Text('Bahasa', style: TextStyle(color: Colors.white)),
-                    trailing: const Text('Indonesia', style: TextStyle(color: Colors.grey)),
+                    leading:
+                        const Icon(Icons.language_rounded, color: Colors.white),
+                    title: const Text('Bahasa',
+                        style: TextStyle(color: Colors.white)),
+                    trailing: const Text('Indonesia',
+                        style: TextStyle(color: Colors.grey)),
                     onTap: () {},
                   ),
                   Divider(color: Colors.grey.shade700, height: 1),
                   ListTile(
-                    leading: const Icon(Icons.alarm_rounded, color: Colors.white),
-                    title: const Text('Jam Reminder', style: TextStyle(color: Colors.white)),
-                    trailing: const Text('07:00', style: TextStyle(color: Colors.grey)),
+                    leading:
+                        const Icon(Icons.alarm_rounded, color: Colors.white),
+                    title: const Text('Jam Reminder',
+                        style: TextStyle(color: Colors.white)),
+                    trailing: const Text('07:00',
+                        style: TextStyle(color: Colors.grey)),
                     onTap: () {},
                   ),
                 ],
@@ -100,20 +108,26 @@ class SettingsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ListTile(
-                    leading: const Icon(Icons.backup_rounded, color: Colors.white),
-                    title: const Text('Backup', style: TextStyle(color: Colors.white)),
+                    leading:
+                        const Icon(Icons.backup_rounded, color: Colors.white),
+                    title: const Text('Backup',
+                        style: TextStyle(color: Colors.white)),
                     onTap: () {},
                   ),
                   Divider(color: Colors.grey.shade700, height: 1),
                   ListTile(
-                    leading: const Icon(Icons.restore_rounded, color: Colors.white),
-                    title: const Text('Restore', style: TextStyle(color: Colors.white)),
+                    leading:
+                        const Icon(Icons.restore_rounded, color: Colors.white),
+                    title: const Text('Restore',
+                        style: TextStyle(color: Colors.white)),
                     onTap: () {},
                   ),
                   Divider(color: Colors.grey.shade700, height: 1),
                   ListTile(
-                    leading: const Icon(Icons.picture_as_pdf_rounded, color: Colors.white),
-                    title: const Text('Export PDF', style: TextStyle(color: Colors.white)),
+                    leading: const Icon(Icons.picture_as_pdf_rounded,
+                        color: Colors.white),
+                    title: const Text('Export PDF',
+                        style: TextStyle(color: Colors.white)),
                     onTap: () {},
                   ),
                 ],
@@ -123,8 +137,10 @@ class SettingsScreen extends StatelessWidget {
             Card(
               child: ListTile(
                 leading: const Icon(Icons.info_rounded, color: Colors.white),
-                title: const Text('Tentang Aplikasi', style: TextStyle(color: Colors.white)),
-                subtitle: const Text('Versi 1.0.0', style: TextStyle(color: Colors.grey)),
+                title: const Text('Tentang Aplikasi',
+                    style: TextStyle(color: Colors.white)),
+                subtitle: const Text('Versi 1.0.0',
+                    style: TextStyle(color: Colors.grey)),
                 onTap: () {},
               ),
             ),
