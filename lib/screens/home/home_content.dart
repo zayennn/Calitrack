@@ -1,4 +1,3 @@
-// File: lib/screens/home/home_content.dart
 import 'package:flutter/material.dart';
 import '../../core/constants/colors.dart';
 import '../../core/constants/sizes.dart';
