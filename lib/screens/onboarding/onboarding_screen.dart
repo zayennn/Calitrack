@@ -19,20 +19,23 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final List<OnboardingPageData> pages = [
     OnboardingPageData(
       title: 'Selamat Datang di CaliTrack',
-      description: 'Aplikasi untuk membangun disiplin latihan calisthenics setiap hari.',
-      icon: Icons.fitness_center,
+      description:
+          'Aplikasi untuk membangun disiplin latihan calisthenics setiap hari.',
+      icon: Icons.fitness_center_rounded,
       color: AppColors.primary,
     ),
     OnboardingPageData(
       title: 'Bangun Kebiasaan',
-      description: 'Lacak progress latihanmu dan tetap konsisten dengan jadwal mingguan.',
-      icon: Icons.checklist,
+      description:
+          'Lacak progress latihanmu dan tetap konsisten dengan jadwal mingguan.',
+      icon: Icons.checklist_rounded,
       color: AppColors.secondary,
     ),
     OnboardingPageData(
       title: 'Jadi Lebih Kuat',
-      description: 'Tingkatkan kekuatan dan stamina dengan program latihan yang terstruktur.',
-      icon: Icons.trending_up,
+      description:
+          'Tingkatkan kekuatan dan stamina dengan program latihan yang terstruktur.',
+      icon: Icons.trending_up_rounded,
       color: AppColors.primary,
     ),
   ];
@@ -52,12 +55,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           padding: const EdgeInsets.all(AppSizes.padding),
           child: Column(
             children: [
-              // Skip button
               Align(
                 alignment: Alignment.topRight,
                 child: TextButton(
                   onPressed: _goToHome,
-                  child: const Text('Lewati', style: TextStyle(color: Colors.grey)),
+                  child: const Text('Lewati',
+                      style: TextStyle(color: Colors.grey)),
                 ),
               ),
               Expanded(
@@ -74,7 +77,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   },
                 ),
               ),
-              // Dots indicator
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(
@@ -85,14 +87,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     width: _currentPage == index ? 24 : 8,
                     height: 8,
                     decoration: BoxDecoration(
-                      color: _currentPage == index ? AppColors.primary : Colors.grey,
+                      color: _currentPage == index
+                          ? AppColors.primary
+                          : Colors.grey,
                       borderRadius: BorderRadius.circular(4),
                     ),
                   ),
                 ),
               ),
               const SizedBox(height: 24),
-              // Buttons
               Row(
                 children: [
                   if (_currentPage < pages.length - 1) ...[
@@ -121,7 +124,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       child: CustomButton(
                         text: 'Mulai',
                         onPressed: _goToHome,
-                        icon: Icons.arrow_forward,
+                        icon: Icons.arrow_forward_rounded,
                       ),
                     ),
                   ],
