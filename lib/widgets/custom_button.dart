@@ -40,7 +40,9 @@ class CustomButton extends StatelessWidget {
               Icon(icon, size: 20),
               const SizedBox(width: 8),
             ],
-            Text(text, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
+            Text(text,
+                style: const TextStyle(
+                    fontWeight: FontWeight.w600, fontSize: 16)),
           ],
         ),
       ),
