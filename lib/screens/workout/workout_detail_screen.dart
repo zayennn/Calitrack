@@ -1,3 +1,4 @@
+// File: lib/screens/workout/workout_detail_screen.dart
 import 'package:flutter/material.dart';
 import '../../core/constants/colors.dart';
 import '../../core/constants/sizes.dart';
@@ -14,12 +15,13 @@ class WorkoutDetailScreen extends StatefulWidget {
 }
 
 class _WorkoutDetailScreenState extends State<WorkoutDetailScreen> {
-  List<bool> setCompleted = [];
+  late List<bool> setCompleted;
 
   @override
   void initState() {
     super.initState();
-    setCompleted = List.generate(widget.exercise.targetSets, (index) => false);
+    setCompleted =
+        List.generate(widget.exercise.targetSets, (index) => false);
   }
 
   @override
@@ -32,7 +34,6 @@ class _WorkoutDetailScreenState extends State<WorkoutDetailScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image placeholder
             Container(
               height: 200,
               width: double.infinity,
@@ -40,9 +41,8 @@ class _WorkoutDetailScreenState extends State<WorkoutDetailScreen> {
                 color: AppColors.card,
                 borderRadius: BorderRadius.circular(AppSizes.cardRadius),
               ),
-              child: Center(
-                child: Icon(Icons.image, size: 60, color: Colors.grey),
-              ),
+              child:
+                  const Center(child: Icon(Icons.image_rounded, size: 60, color: Colors.grey)),
             ),
             const SizedBox(height: 16),
             Text(ex.name,
@@ -56,15 +56,15 @@ class _WorkoutDetailScreenState extends State<WorkoutDetailScreen> {
             const SizedBox(height: 16),
             Row(
               children: [
-                _buildInfoChip('${ex.targetSets} Set', Icons.repeat),
+                _buildInfoChip('${ex.targetSets} Set', Icons.repeat_rounded),
                 const SizedBox(width: 12),
-                _buildInfoChip('${ex.targetReps} Reps', Icons.format_list_numbered),
+                _buildInfoChip(
+                    '${ex.targetReps} Reps', Icons.format_list_numbered_rounded),
               ],
             ),
             const SizedBox(height: 24),
-            // Checklist sets
-            Text('Checklist Set',
-                style: const TextStyle(
+            const Text('Checklist Set',
+                style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.white)),
@@ -83,16 +83,15 @@ class _WorkoutDetailScreenState extends State<WorkoutDetailScreen> {
                 checkColor: Colors.black,
                 controlAffinity: ListTileControlAffinity.leading,
                 contentPadding: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)),
+                shape:
+                    RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                 tileColor: AppColors.card,
               );
             }),
-            const SizedBox(height: 24),
-            // Tips
             if (ex.tips.isNotEmpty) ...[
-              Text('Tips',
-                  style: const TextStyle(
+              const SizedBox(height: 24),
+              const Text('Tips',
+                  style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: Colors.white)),
@@ -107,7 +106,7 @@ class _WorkoutDetailScreenState extends State<WorkoutDetailScreen> {
                               padding: const EdgeInsets.only(bottom: 4),
                               child: Row(
                                 children: [
-                                  Icon(Icons.lightbulb,
+                                  const Icon(Icons.lightbulb_rounded,
                                       color: AppColors.secondary, size: 18),
                                   const SizedBox(width: 8),
                                   Expanded(
@@ -125,9 +124,7 @@ class _WorkoutDetailScreenState extends State<WorkoutDetailScreen> {
             const SizedBox(height: 24),
             CustomButton(
               text: 'Selesai',
-              onPressed: () {
-                Navigator.pop(context);
-              },
+              onPressed: () => Navigator.pop(context),
             ),
           ],
         ),
@@ -147,7 +144,8 @@ class _WorkoutDetailScreenState extends State<WorkoutDetailScreen> {
         children: [
           Icon(icon, size: 16, color: AppColors.primary),
           const SizedBox(width: 6),
-          Text(label, style: const TextStyle(color: Colors.white, fontSize: 14)),
+          Text(label,
+              style: const TextStyle(color: Colors.white, fontSize: 14)),
         ],
       ),
     );
