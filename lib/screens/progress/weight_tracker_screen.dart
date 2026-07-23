@@ -16,30 +16,30 @@ class WeightTrackerScreen extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.primary,
         onPressed: () {
-          // dummy add weight
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Tambah berat badan (dummy)')),
+            const SnackBar(content: Text('Tambah berat badan (dummy)')),
           );
         },
-        child: const Icon(Icons.add, color: Colors.black),
+        child: const Icon(Icons.add_rounded, color: Colors.black),
       ),
       body: Padding(
         padding: const EdgeInsets.all(AppSizes.padding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Current weight card
             Card(
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 24, horizontal: 24),
                 child: Center(
                   child: Column(
                     children: [
-                      Text('Berat Badan Saat Ini',
-                          style: TextStyle(fontSize: 16, color: Colors.grey)),
+                      const Text('Berat Badan Saat Ini',
+                          style:
+                              TextStyle(fontSize: 16, color: Colors.grey)),
                       const SizedBox(height: 8),
                       Text('$currentWeight kg',
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 36,
                               fontWeight: FontWeight.bold,
                               color: Colors.white)),
@@ -49,7 +49,7 @@ class WeightTrackerScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            Text('Riwayat',
+            const Text('Riwayat',
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -63,9 +63,12 @@ class WeightTrackerScreen extends StatelessWidget {
                     LineChartData(
                       lineBarsData: [
                         LineChartBarData(
-                          spots: history.asMap().entries.map((e) {
-                            return FlSpot(e.key.toDouble(), e.value.weight);
-                          }).toList(),
+                          spots: history
+                              .asMap()
+                              .entries
+                              .map((e) =>
+                                  FlSpot(e.key.toDouble(), e.value.weight))
+                              .toList(),
                           isCurved: true,
                           color: AppColors.primary,
                           barWidth: 3,
@@ -84,10 +87,9 @@ class WeightTrackerScreen extends StatelessWidget {
                             getTitlesWidget: (value, meta) {
                               if (value.toInt() % 7 == 0) {
                                 final date = history[value.toInt()].date;
-                                return Text(
-                                  '${date.day}/${date.month}',
-                                  style: TextStyle(fontSize: 10, color: Colors.grey),
-                                );
+                                return Text('${date.day}/${date.month}',
+                                    style: const TextStyle(
+                                        fontSize: 10, color: Colors.grey));
                               }
                               return const SizedBox.shrink();
                             },
@@ -99,12 +101,15 @@ class WeightTrackerScreen extends StatelessWidget {
                             reservedSize: 40,
                             getTitlesWidget: (value, meta) {
                               return Text('${value.toInt()} kg',
-                                  style: TextStyle(fontSize: 10, color: Colors.grey));
+                                  style: const TextStyle(
+                                      fontSize: 10, color: Colors.grey));
                             },
                           ),
                         ),
-                        topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                        rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                        topTitles: AxisTitles(
+                            sideTitles: SideTitles(showTitles: false)),
+                        rightTitles: AxisTitles(
+                            sideTitles: SideTitles(showTitles: false)),
                       ),
                       gridData: FlGridData(
                         show: true,
