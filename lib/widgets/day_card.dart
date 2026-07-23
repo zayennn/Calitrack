@@ -25,7 +25,9 @@ class DayCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: workout.isRestDay ? Colors.grey.shade800 : AppColors.card,
           borderRadius: BorderRadius.circular(16),
-          border: isToday ? Border.all(color: AppColors.secondary, width: 2) : null,
+          border: isToday
+              ? Border.all(color: AppColors.secondary, width: 2)
+              : null,
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.2),
