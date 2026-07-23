@@ -11,7 +11,8 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _fadeAnimation;
 
@@ -44,18 +45,11 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
     return Scaffold(
       backgroundColor: AppColors.background,
       body: Center(
-        child: AnimatedBuilder(
-          animation: _fadeAnimation,
-          builder: (context, child) {
-            return Opacity(
-              opacity: _fadeAnimation.value,
-              child: child,
-            );
-          },
+        child: FadeTransition(
+          opacity: _fadeAnimation,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Logo placeholder
               Container(
                 width: 100,
                 height: 100,
@@ -63,7 +57,8 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   color: AppColors.primary,
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: const Icon(Icons.fitness_center, size: 50, color: Colors.black),
+                child: const Icon(Icons.fitness_center_rounded,
+                    size: 50, color: Colors.black),
               ),
               const SizedBox(height: 24),
               Text(
