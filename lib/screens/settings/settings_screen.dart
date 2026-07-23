@@ -1,7 +1,7 @@
+// File: lib/screens/settings/settings_screen.dart
 import 'package:flutter/material.dart';
 import '../../core/constants/colors.dart';
 import '../../core/constants/sizes.dart';
-import '../../widgets/custom_button.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -15,7 +15,6 @@ class SettingsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Account section
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -24,14 +23,14 @@ class SettingsScreen extends StatelessWidget {
                     CircleAvatar(
                       radius: 30,
                       backgroundColor: AppColors.primary,
-                      child: Text('E',
+                      child: const Text('E',
                           style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.bold,
                               color: Colors.black)),
                     ),
                     const SizedBox(width: 16),
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('Elang',
@@ -48,8 +47,7 @@ class SettingsScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            // Preferences section
-            Text('Preferensi',
+            const Text('Preferensi',
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -59,42 +57,41 @@ class SettingsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   SwitchListTile(
-                    title: Text('Dark Mode',
-                        style: TextStyle(color: Colors.white)),
+                    title:
+                        const Text('Dark Mode', style: TextStyle(color: Colors.white)),
                     value: true,
                     onChanged: (val) {},
                     activeColor: AppColors.primary,
-                    secondary: Icon(Icons.dark_mode, color: Colors.white),
+                    secondary: const Icon(Icons.dark_mode_rounded, color: Colors.white),
                   ),
                   Divider(color: Colors.grey.shade700, height: 1),
                   SwitchListTile(
-                    title: Text('Notifikasi',
+                    title: const Text('Notifikasi',
                         style: TextStyle(color: Colors.white)),
                     value: true,
                     onChanged: (val) {},
                     activeColor: AppColors.primary,
-                    secondary: Icon(Icons.notifications, color: Colors.white),
+                    secondary: const Icon(Icons.notifications_rounded, color: Colors.white),
                   ),
                   Divider(color: Colors.grey.shade700, height: 1),
                   ListTile(
-                    leading: Icon(Icons.language, color: Colors.white),
-                    title: Text('Bahasa', style: TextStyle(color: Colors.white)),
-                    trailing: Text('Indonesia', style: TextStyle(color: Colors.grey)),
+                    leading: const Icon(Icons.language_rounded, color: Colors.white),
+                    title: const Text('Bahasa', style: TextStyle(color: Colors.white)),
+                    trailing: const Text('Indonesia', style: TextStyle(color: Colors.grey)),
                     onTap: () {},
                   ),
                   Divider(color: Colors.grey.shade700, height: 1),
                   ListTile(
-                    leading: Icon(Icons.alarm, color: Colors.white),
-                    title: Text('Jam Reminder', style: TextStyle(color: Colors.white)),
-                    trailing: Text('07:00', style: TextStyle(color: Colors.grey)),
+                    leading: const Icon(Icons.alarm_rounded, color: Colors.white),
+                    title: const Text('Jam Reminder', style: TextStyle(color: Colors.white)),
+                    trailing: const Text('07:00', style: TextStyle(color: Colors.grey)),
                     onTap: () {},
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 24),
-            // Data section
-            Text('Data',
+            const Text('Data',
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -104,39 +101,34 @@ class SettingsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   ListTile(
-                    leading: Icon(Icons.backup, color: Colors.white),
-                    title: Text('Backup', style: TextStyle(color: Colors.white)),
+                    leading: const Icon(Icons.backup_rounded, color: Colors.white),
+                    title: const Text('Backup', style: TextStyle(color: Colors.white)),
                     onTap: () {},
                   ),
                   Divider(color: Colors.grey.shade700, height: 1),
                   ListTile(
-                    leading: Icon(Icons.restore, color: Colors.white),
-                    title: Text('Restore', style: TextStyle(color: Colors.white)),
+                    leading: const Icon(Icons.restore_rounded, color: Colors.white),
+                    title: const Text('Restore', style: TextStyle(color: Colors.white)),
                     onTap: () {},
                   ),
                   Divider(color: Colors.grey.shade700, height: 1),
                   ListTile(
-                    leading: Icon(Icons.picture_as_pdf, color: Colors.white),
-                    title: Text('Export PDF', style: TextStyle(color: Colors.white)),
+                    leading: const Icon(Icons.picture_as_pdf_rounded, color: Colors.white),
+                    title: const Text('Export PDF', style: TextStyle(color: Colors.white)),
                     onTap: () {},
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 24),
-            // About
             Card(
               child: ListTile(
-                leading: Icon(Icons.info, color: Colors.white),
-                title: Text('Tentang Aplikasi', style: TextStyle(color: Colors.white)),
-                subtitle: Text('Versi 1.0.0', style: TextStyle(color: Colors.grey)),
+                leading: const Icon(Icons.info_rounded, color: Colors.white),
+                title: const Text('Tentang Aplikasi', style: TextStyle(color: Colors.white)),
+                subtitle: const Text('Versi 1.0.0', style: TextStyle(color: Colors.grey)),
                 onTap: () {},
               ),
             ),
-            const SizedBox(height: 24),
-            // Logout button (not needed but we can add placeholder)
-            // "Logout tidak perlu." So we skip.
-            const SizedBox(height: 16),
           ],
         ),
       ),
