@@ -8,7 +8,7 @@ import '../../widgets/custom_button.dart';
 import 'workout_detail_screen.dart';
 
 class WorkoutScreen extends StatelessWidget {
-  final Workout? workout; // if null, use today's workout
+  final Workout? workout;
 
   const WorkoutScreen({super.key, this.workout});
 
@@ -16,24 +16,21 @@ class WorkoutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final w = workout ?? DummyData.weeklyWorkouts[DateTime.now().weekday - 1];
     return Scaffold(
-      appBar: AppBar(
-        title: Text(w.name),
-      ),
+      appBar: AppBar(title: Text(w.name)),
       body: w.isRestDay
           ? Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.bedtime, size: 80, color: Colors.grey),
+                  Icon(Icons.bedtime_rounded, size: 80, color: Colors.grey),
                   const SizedBox(height: 16),
-                  Text('Hari ini istirahat',
+                  const Text('Hari ini istirahat',
                       style: TextStyle(fontSize: 20, color: Colors.grey)),
                 ],
               ),
             )
           : Column(
               children: [
-                // Progress bar dummy
                 LinearProgressIndicator(
                   value: 0.4,
                   backgroundColor: Colors.grey.shade800,
@@ -43,8 +40,7 @@ class WorkoutScreen extends StatelessWidget {
                 Expanded(
                   child: ListView.builder(
                     padding: const EdgeInsets.all(AppSizes.padding),
-                    itemCount:
-                        w.exercises.length + 1, // +1 for button at bottom
+                    itemCount: w.exercises.length + 1,
                     itemBuilder: (context, index) {
                       if (index == w.exercises.length) {
                         return Padding(
@@ -52,10 +48,9 @@ class WorkoutScreen extends StatelessWidget {
                           child: CustomButton(
                             text: 'Selesaikan Workout',
                             onPressed: () {
-                              // dummy action
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text('Workout selesai!'),
+                                  content: const Text('Workout selesai!'),
                                   backgroundColor: AppColors.primary,
                                 ),
                               );
@@ -66,7 +61,7 @@ class WorkoutScreen extends StatelessWidget {
                       final exercise = w.exercises[index];
                       return ExerciseCard(
                         exercise: exercise,
-                        isCompleted: index == 0, // dummy first one completed
+                        isCompleted: index == 0,
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
