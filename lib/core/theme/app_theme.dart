@@ -27,7 +27,7 @@ class AppTheme {
         elevation: 4,
         shadowColor: Colors.black.withOpacity(0.3),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppSizes.cardRadius),
+          borderRadius: BorderRadius.circular(20),
         ),
       ),
       appBarTheme: AppBarTheme(
